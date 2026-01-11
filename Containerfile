@@ -30,8 +30,8 @@ FROM ghcr.io/ublue-os/bluefin-dx-nvidia
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
 # Downlad Horizon-client
-RUN mkdir /tmp/misc
-RUN wget -P /tmp/misc https://download3.omnissa.com/software/CART26FQ4_LIN64_RPMPKG_2512/Omnissa-Horizon-Client-2512-8.17.0-20187591429.x64.rpm
+# RUN mkdir /tmp/misc
+RUN rpm-ostree install https://download3.omnissa.com/software/CART26FQ4_LIN64_RPMPKG_2512/Omnissa-Horizon-Client-2512-8.17.0-20187591429.x64.rpm
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
